@@ -1,0 +1,28 @@
+{
+            "default": {
+                "batters": {
+                    "batter": [
+                        {
+                            "id": "1001",
+                            "type": "Regular"
+                        },
+                        {
+                            "id": "1002",
+                            "type": "Chocolate"
+                        },
+                        {
+                            "id": "1003",
+                            "type": "Blueberry"
+                        },
+                        {
+                            "id": "1004",
+                            "type": "Devil's Food"
+                        }
+                    ]
+                },
+                "id": "0001",
+                "name": "Cake",
+                "number": 1,
+                "type": "donut"
+            }
+        }
