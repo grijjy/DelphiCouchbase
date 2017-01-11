@@ -340,7 +340,7 @@ For simplicity sake in Delphi we implement these APIs as an interface ```ICouchb
 
 For example, consider the following example JSON:
 
-```JSON
+```javascript
 {
   "id": "0001",
   "type": "donut",
@@ -439,7 +439,7 @@ begin
 end;
 ```
 The result ```CBSubDocResult.Responses[0].Value``` would be the JSON... 
-```JSON
+```javascript
 '{"batter":[{ "id": "1001", "type": "Regular" },{ "id": "1002", "type": "Chocolate" },{ "id": "1003", "type": "Blueberry" },{ "id": "1004", "type": "Devil''s Food" }]}'
 ```
 
@@ -453,7 +453,7 @@ begin
 end;
 ```
 The result ```CBSubDocResult.Responses[0].Value``` would be the JSON...
-```JSON
+```javascript
 '{ "id": "1001", "type": "Regular" }'```
 
 ### Get the value of a JSON array element value
