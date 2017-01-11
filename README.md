@@ -404,7 +404,7 @@ In the above example we create a cascading transaction of 2 distinct Get operati
 In this way we can cascade many different subdocument operations in a single transaction.  These operations can be of any method that returns ```ICouchbaseSubDoc```.
 
 ### To insert a new name and value in the JSON we would do the following...
-```
+```Delphi
 var
   CBSubDocResult: TCouchbaseSubDocResult;
 begin
@@ -454,7 +454,8 @@ end;
 ```
 The result ```CBSubDocResult.Responses[0].Value``` would be the JSON...
 ```javascript
-'{ "id": "1001", "type": "Regular" }'```
+'{ "id": "1001", "type": "Regular" }'
+```
 
 ### Get the value of a JSON array element value
 To get the value of a JSON array element value. 
@@ -490,7 +491,8 @@ begin
   CBSubDocResult := FCouchbase.LookupIn('Test').GetCount('batters.batter').Execute; 
 end;
 ```
-**Note: The GetCount API does not appear to work correctly in the current pre-release 4.6 Couchbase Server in conjunction with the latest Couchbase APIs. **
+
+> Note: The GetCount API does not appear to work correctly in the current pre-release 4.6 Couchbase Server in conjunction with the latest Couchbase APIs.
 
 ### To upsert a new name/value pair into the JSON
 ```Delphi
