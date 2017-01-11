@@ -30,8 +30,8 @@ Installing the Couchbase server is a fairly straightforward effort thanks to exc
 
 Installing Couchbase involves 3 main steps,
 1. Install [Ubuntu 16.04 LTS](https://www.ubuntu.com/download).
-1. [Download Couchbase Server](https://www.couchbase.com/nosql-databases/downloads#couchbase-server) for Ubuntu (currently 14.04 official)
-1. Install Couchbase Server (currently 4.6 pre-release)
+2. [Download Couchbase Server](https://www.couchbase.com/nosql-databases/downloads#couchbase-server) for Ubuntu (currently 14.04 official)
+3. Install Couchbase Server (currently 4.6 pre-release)
 
 ### To install Couchbase 4.6 for Ubuntu: 
 ```shell
@@ -380,7 +380,7 @@ begin
     Writeln('type = ' + CBSubDocResult.Responses[0].Value);
 end;
 ```
-In the above example we first call the special method ```Couchbase.LookupIn``` when is used for queries of subdocuments (read-only JSON operations) then we ask the key named ```'Test'``` and the JSON name called ```'type'```.
+In the above example we first call the special method ```Couchbase.LookupIn``` which is used for queries of subdocuments (read-only JSON operations) then we ask the key named ```'Test'``` and the JSON name called ```'type'```.
 
 If the subdocument transaction was successful, then ```CBSubDocResult.Success``` returns ```True``` and we receive a ```TArray<TCouchbaseSubDocResponse>```.  It is important to check the Length of this array because transactions can succeed and yield 0 results.
 
@@ -398,9 +398,9 @@ begin
   end;
 end;
 ```
-In the above example we create a cascading operation of 2 distinct Get transactions.  The resulting ```TArray<TCouchbaseSubDocResponse>``` will have a Length of 2 with the respective values for the specified names.
+In the above example we create a cascading transaction of 2 distinct Get operations.  The resulting ```TArray<TCouchbaseSubDocResponse>``` will have a Length of 2 with the respective values for the specified names.
 
-In this manner we can cascade many different subdocument operations in a single transaction.  These operations can be of any method that returns ```ICouchbaseSubDoc```.
+In this way we can cascade many different subdocument operations in a single transaction.  These operations can be of any method that returns ```ICouchbaseSubDoc```.
 
 ### To insert a new name and value in the JSON we would do the following...
 ```
@@ -410,7 +410,7 @@ begin
   CBSubDocResult := FCouchbase.MutateIn('Test').Upsert('frosting', '"pink"').Execute;
 end;
 ```
-In the above example we call the special method ```Couchbase.MutateIn``` when is used for modifying subdocuments (write JSON operations) then we ask the key named ```'Test'```.  The ```Upsert``` cascading operation inserts a new name called ```'frosting'``` and sets it's value to ```'pink'```. 
+In the above example we call the special method ```Couchbase.MutateIn``` which is used for modifying subdocuments (write JSON operations) then we ask the key named ```'Test'```.  The ```Upsert``` cascading operation inserts a new name called ```'frosting'``` and sets it's value to ```'pink'```. 
 
 I think you probably get the idea by now.   By combining cascading JSON operations into a single transaction you can perform relatively complex operations.
 
@@ -439,7 +439,8 @@ end;
 ```
 The result ```CBSubDocResult.Responses[0].Value``` would be the JSON... 
 ```JSON
-'{"batter":[{ "id": "1001", "type": "Regular" },{ "id": "1002", "type": "Chocolate" },{ "id": "1003", "type": "Blueberry" },{ "id": "1004", "type": "Devil''s Food" }]}'```
+'{"batter":[{ "id": "1001", "type": "Regular" },{ "id": "1002", "type": "Chocolate" },{ "id": "1003", "type": "Blueberry" },{ "id": "1004", "type": "Devil''s Food" }]}'
+```
 
 ### Get the value of a JSON array element
 To get the JSON value assocated with a JSON array element. 
