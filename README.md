@@ -28,7 +28,8 @@ The examples here is for Delphi on Windows using a Couchbase remote database run
 
 Installing the Couchbase server is a fairly straightforward effort thanks to excellent documentation available on their website.  We prefer Ubuntu so the instructions set forth here are focused on that Linux flavor.
 
-Installing Couchbase involves 3 main steps,
+Installing Couchbase involves 3 main steps:
+
 1. Install [Ubuntu 16.04 LTS](https://www.ubuntu.com/download).
 2. [Download Couchbase Server](https://www.couchbase.com/nosql-databases/downloads#couchbase-server) for Ubuntu (currently 14.04 official)
 3. Install Couchbase Server (currently 4.6 pre-release)
